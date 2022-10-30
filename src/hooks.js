@@ -16,8 +16,8 @@ const useFlip = () => {
 const useAxios = (url) => {
   const [cards, setCards] = useState([]);
 
-  const addCard = async() => {
-    const response = await axios.get(url);
+  const addCard = async (slug="") => {
+    const response = await axios.get(url+slug);
     setCards(cards => [...cards, {...response.data, id: uuid() }])
   }
 
